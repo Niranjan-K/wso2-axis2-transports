@@ -196,6 +196,18 @@ public class RabbitMQMessageSender {
             }
             builder.deliveryMode(deliveryMode);
 
+            Object priorityObj = msgContext.getProperty(RabbitMQConstants.MESSAGE_PRIORITY);
+            if (priorityObj != null) {
+                String priorityString = (String) priorityObj;
+                if (!StringUtils.isEmpty(priorityString)) {
+                    try {
+                        builder.priority(Integer.parseInt(priorityString));
+                    } catch(NumberFormatException e) {
+                        log.warn("Number format error in reading Priority value. Proceeding with default");
+                    }
+                }
+            }
+
             if (!StringUtils.isEmpty(replyTo)) {
                 builder.replyTo(replyTo);
             }

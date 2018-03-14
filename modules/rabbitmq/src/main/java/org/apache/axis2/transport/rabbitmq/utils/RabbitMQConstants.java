@@ -78,6 +78,8 @@ public class RabbitMQConstants {
     public static final String QUEUE_ROUTING_KEY = "rabbitmq.queue.routing.key";
     public static final String QUEUE_DELIVERY_MODE = "rabbitmq.queue.delivery.mode"; // 1=NonPersistent , 2=Persistent
 
+    public static final String MESSAGE_PRIORITY = "rabbitmq.message.priority";
+
     public static final String CONSUMER_QOS = "rabbitmq.channel.consumer.qos";
     public static final String CONSUMER_TAG = "rabbitmq.consumer.tag";
     public static final String CONCURRENT_CONSUMER_COUNT = "rabbitmq.concurrent.consumer.count";
